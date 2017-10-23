@@ -21,6 +21,12 @@ RUN zypper -n refresh && \
     zypper -n update && \
     zypper -n install java-1_8_0-openjdk
 
+# Add Tini
+ENV TINI_VERSION v0.16.1
+ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
+RUN chmod +x /tini
+ENTRYPOINT ["/tini", "--"]
+
 # Tag the image
 ARG BUILD_NUMBER
 ARG BUILD_DATE
