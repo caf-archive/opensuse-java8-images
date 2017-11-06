@@ -21,11 +21,15 @@ RUN zypper -n refresh && \
     zypper -n update && \
     zypper -n install java-1_8_0-openjdk
 
+# Add scripts to be executed during startup
+COPY startup /startup
+RUN chmod +x /startup/*
+
 # Add Tini
 ENV TINI_VERSION v0.16.1
 ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
 RUN chmod +x /tini
-ENTRYPOINT ["/tini", "--"]
+ENTRYPOINT ["/tini", "--", "/startup/startup.sh"]
 
 # Tag the image
 ARG BUILD_NUMBER
