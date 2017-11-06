@@ -23,7 +23,10 @@ RUN zypper -n refresh && \
 
 # Add scripts to be executed during startup
 COPY startup /startup
-RUN chmod +x /startup/*
+ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert.sh \
+    https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
+    /startup/startup.d/
+RUN chmod +x /startup/* /startup/startup.d/*
 
 # Add Tini
 ENV TINI_VERSION v0.16.1
