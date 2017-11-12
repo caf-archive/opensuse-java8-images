@@ -16,10 +16,10 @@
 
 FROM opensuse:latest
 
-# Update the OS packages and install Java
+# Update the OS packages and install Java and cURL
 RUN zypper -n refresh && \
     zypper -n update && \
-    zypper -n install java-1_8_0-openjdk
+    zypper -n install java-1_8_0-openjdk curl
 
 # Add scripts to be executed during startup
 COPY startup /startup
