@@ -14,25 +14,12 @@
 # limitations under the License.
 #
 
-FROM opensuse:latest
+FROM cafapi/opensuse-tini:1.0.0-SNAPSHOT
 
 # Update the OS packages and install Java and cURL
 RUN zypper -n refresh && \
     zypper -n update && \
     zypper -n install java-1_8_0-openjdk curl
-
-# Add scripts to be executed during startup
-COPY startup /startup
-ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert.sh \
-    https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
-    /startup/startup.d/
-RUN chmod +x /startup/* /startup/startup.d/*
-
-# Add Tini
-ENV TINI_VERSION v0.16.1
-ADD https://github.com/krallin/tini/releases/download/${TINI_VERSION}/tini /tini
-RUN chmod +x /tini
-ENTRYPOINT ["/tini", "--", "/startup/startup.sh"]
 
 # Tag the image
 ARG BUILD_NUMBER
