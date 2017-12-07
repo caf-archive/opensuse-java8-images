@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM cafinternal/prereleases:opensuse-tini-1.0.1-SNAPSHOT
+FROM cafapi/opensuse-tini:1.0
 
 # Update the OS packages and install Java
 RUN zypper -n refresh && \
