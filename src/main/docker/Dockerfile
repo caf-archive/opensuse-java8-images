@@ -14,12 +14,12 @@
 # limitations under the License.
 #
 
-FROM cafapi/opensuse-tini:1.0
+FROM cafinternal/prereleases:opensuse-tini-1.0.1-SNAPSHOT
 
 # Update the OS packages and install Java and cURL
 RUN zypper -n refresh && \
     zypper -n update && \
-    zypper -n install java-1_8_0-openjdk curl
+    zypper -n install java-1_8_0-openjdk
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
