@@ -24,6 +24,7 @@ RUN zypper -n refresh && \
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
     /startup/startup.d/
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
+
 # Install OpenJDK 8 Development Kit
 RUN zypper -n install java-1_8_0-openjdk-devel
 
