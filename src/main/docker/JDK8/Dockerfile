@@ -18,13 +18,18 @@ FROM cafapi/opensuse-base:1
 
 # Update the OS packages and install Java
 RUN zypper -n refresh && \
-    zypper -n update && \
-    zypper -n install java-1_8_0-openjdk
+    zypper -n update
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
     /startup/startup.d/
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
+
+# Install OpenJDK 8 Development Kit
+RUN zypper -n install java-1_8_0-openjdk-devel
+
+# Set Java Home
+ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
 
 # Tag the image
 ARG BUILD_NUMBER
