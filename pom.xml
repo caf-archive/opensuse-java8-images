@@ -27,7 +27,7 @@
     <packaging>pom</packaging>
 
     <name>openSUSE Java8 images</name>
-    <description>Two openSUSE-based images which either includes the OpenJDK 8 Runtime Environment or the OpenJDK 8 Development Kit.</description>
+    <description>Two openSUSE-based images which includes the OpenJDK 8 Runtime Environment or the OpenJDK 8 Development Kit.</description>
     <url>https://github.com/CAFapi/opensuse-java8-images</url>
 
     <parent>
@@ -98,7 +98,7 @@
                         <image>
                             <name>${dockerCafImagePrefix}opensuse-jre8${dockerProjectVersion}</name>
                             <build>
-                                <dockerFile>${project.basedir}/src/main/docker/JRE8_Dockerfile</dockerFile>
+                                <dockerFileDir>${project.basedir}/src/main/docker/JRE8</dockerFileDir>
                                 <args>
                                     <!-- Labels used for image tagging -->
                                     <BUILD_NUMBER>${project.version}</BUILD_NUMBER>
@@ -117,7 +117,7 @@
                         <image>
                             <name>${dockerCafImagePrefix}opensuse-jdk8${dockerProjectVersion}</name>
                             <build>
-                                <dockerFile>${project.basedir}/src/main/docker/JDK8_Dockerfile</dockerFile>
+                                <dockerFileDir>${project.basedir}/src/main/docker/JDK8</dockerFileDir>
                                 <args>
                                     <!-- Labels used for image tagging -->
                                     <BUILD_NUMBER>${project.version}</BUILD_NUMBER>
