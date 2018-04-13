@@ -98,7 +98,7 @@
                         <image>
                             <name>${dockerCafImagePrefix}opensuse-jre8${dockerProjectVersion}</name>
                             <build>
-                                <dockerFileDir>${project.basedir}/src/main/docker/JRE8</dockerFileDir>
+                                <dockerFileDir>jre</dockerFileDir>
                                 <args>
                                     <!-- Labels used for image tagging -->
                                     <BUILD_NUMBER>${project.version}</BUILD_NUMBER>
@@ -117,7 +117,7 @@
                         <image>
                             <name>${dockerCafImagePrefix}opensuse-jdk8${dockerProjectVersion}</name>
                             <build>
-                                <dockerFileDir>${project.basedir}/src/main/docker/JDK8</dockerFileDir>
+                                <dockerFileDir>jdk</dockerFileDir>
                                 <args>
                                     <!-- Labels used for image tagging -->
                                     <BUILD_NUMBER>${project.version}</BUILD_NUMBER>
