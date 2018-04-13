@@ -1,6 +1,9 @@
 #
 # Copyright 2015-2017 EntIT Software LLC, a Micro Focus company.
 #
+#
+# Copyright 2015-2017 EntIT Software LLC, a Micro Focus company.
+#
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
@@ -18,13 +21,15 @@ FROM cafapi/opensuse-base:1
 
 # Update the OS packages and install Java
 RUN zypper -n refresh && \
-    zypper -n update && \
-    zypper -n install java-1_8_0-openjdk
+    zypper -n update
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
     /startup/startup.d/
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
+   
+# Install OpenJDK 8 Runtime Environment
+RUN zypper -n install java-1_8_0-openjdk
 
 # Tag the image
 ARG BUILD_NUMBER
