@@ -134,6 +134,7 @@
                             </build>
                         </image>
                     </images>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>
