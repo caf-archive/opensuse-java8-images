@@ -93,7 +93,6 @@
                 </executions>
                 <configuration>
                     <autoPull>always</autoPull>
-                    <verbose>true</verbose>
                     <images>
                         <image>
                             <name>${dockerCafImagePrefix}opensuse-jre8${dockerProjectVersion}</name>
@@ -134,6 +133,7 @@
                             </build>
                         </image>
                     </images>
+                    <verbose>true</verbose>
                 </configuration>
             </plugin>
         </plugins>
