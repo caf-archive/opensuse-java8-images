@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM cafapi/opensuse-base:1
+FROM cafinternal/prereleases:opensuse-base-1.3.0-SCMOD-7472-SNAPSHOT
 
 # Update the OS packages and install Java
 RUN zypper -n refresh && \
