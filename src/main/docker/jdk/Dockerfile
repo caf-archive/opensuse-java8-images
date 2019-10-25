@@ -14,7 +14,7 @@
 # limitations under the License.
 #
 
-FROM cafinternal/prereleases:opensuse-base-1.4.0-SNAPSHOT
+FROM cafapi/opensuse-base:1
 
 # Update the OS packages and install Java
 RUN zypper -n refresh && \
