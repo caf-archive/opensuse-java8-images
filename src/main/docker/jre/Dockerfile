@@ -27,6 +27,15 @@ RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
 # Install OpenJDK 8 Runtime Environment
 RUN zypper -n install java-1_8_0-openjdk
 
+# Set Java Home
+ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
+
+# Disable weaker security algorythms
+COPY 0001-prevent-Logjam-disableAlgorythms.patch $JAVA_HOME/jre/lib/security/
+RUN cd $JAVA_HOME/jre/lib/security && \
+    patch -i 0001-prevent-Logjam-disableAlgorythms.patch java.security && \
+    rm 0001-prevent-Logjam-disableAlgorythms.patch
+
 # Tag the image
 ARG BUILD_NUMBER
 ARG BUILD_DATE
