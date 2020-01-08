@@ -24,15 +24,15 @@ ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-s
     /startup/startup.d/
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
 
-# Install OpenJDK 8 Development Kit
-RUN zypper -n install java-1_8_0-openjdk-devel
+# Install OpenJDK 8 Development Kit and Patch
+RUN zypper -n install java-1_8_0-openjdk-devel patch
 
 # Set Java Home
 ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
 
 # Disable weaker security algorythms
-COPY 0001-prevent-Logjam-disableAlgorythms.patch $JAVA_HOME/lib/security/
-RUN cd $JAVA_HOME/lib/security && \
+COPY 0001-prevent-Logjam-disableAlgorythms.patch $JAVA_HOME/jre/lib/security/
+RUN cd $JAVA_HOME/jre/lib/security && \
     patch -i 0001-prevent-Logjam-disableAlgorythms.patch java.security && \
     rm 0001-prevent-Logjam-disableAlgorythms.patch
 

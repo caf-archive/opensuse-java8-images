@@ -24,8 +24,8 @@ ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-s
     /startup/startup.d/
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
    
-# Install OpenJDK 8 Runtime Environment
-RUN zypper -n install java-1_8_0-openjdk
+# Install OpenJDK 8 Runtime Environment and Patch
+RUN zypper -n install java-1_8_0-openjdk patch
 
 # Set Java Home
 ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
