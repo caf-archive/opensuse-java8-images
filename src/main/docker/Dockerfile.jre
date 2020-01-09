@@ -14,6 +14,25 @@
 # limitations under the License.
 #
 
+#
+# Prelimiary image that updates java.security to disable weaker SSL algorithms
+#
+FROM cafapi/opensuse-base:1 AS builder
+
+# Install OpenJDK 8 Runtime Environment and Patch
+RUN zypper -n install java-1_8_0-openjdk patch
+
+# Set Java Home
+ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
+
+# Disable weaker security algorythms
+COPY disableWeakTlsAlgorithms.patch $JAVA_HOME/jre/lib/security/
+RUN cd $JAVA_HOME/jre/lib/security && \
+    patch -i disableWeakTlsAlgorithms.patch java.security
+
+#
+# The acutal image definition
+#
 FROM cafapi/opensuse-base:1
 
 # Update the OS packages and install Java
@@ -25,16 +44,13 @@ ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-s
 RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
    
 # Install OpenJDK 8 Runtime Environment and Patch
-RUN zypper -n install java-1_8_0-openjdk patch
+RUN zypper -n install java-1_8_0-openjdk
 
 # Set Java Home
 ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
 
 # Disable weaker security algorythms
-COPY 0001-prevent-Logjam-disableAlgorythms.patch $JAVA_HOME/jre/lib/security/
-RUN cd $JAVA_HOME/jre/lib/security && \
-    patch -i 0001-prevent-Logjam-disableAlgorythms.patch java.security && \
-    rm 0001-prevent-Logjam-disableAlgorythms.patch
+COPY --from=builder $JAVA_HOME/jre/lib/security/java.security $JAVA_HOME/jre/lib/security/java.security
 
 # Tag the image
 ARG BUILD_NUMBER
