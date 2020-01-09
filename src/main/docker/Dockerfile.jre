@@ -56,7 +56,7 @@ RUN chmod +x /startup/startup.d/install-ca-cert-java.sh
 ENV JAVA_HOME=/usr/lib64/jvm/java-1.8.0-openjdk-1.8.0
 
 # Disable weaker security algorythms
-COPY --from=builder $JAVA_HOME/jre/lib/security/java.security $JAVA_HOME/jre/lib/security/java.security
+COPY --from=builder $JAVA_HOME/jre/lib/security/java.security* $JAVA_HOME/jre/lib/security/
 
 # Tag the image
 ARG BUILD_NUMBER
