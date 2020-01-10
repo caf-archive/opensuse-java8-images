@@ -19,11 +19,9 @@
 #
 FROM cafapi/opensuse-base:1 AS builder
 
-# Refresh the OS repositories
-RUN zypper -n refresh
-
-# Install OpenJDK 8 Runtime Environment
-RUN zypper -n install java-1_8_0-openjdk
+# Refresh the OS repositories and install OpenJDK 8 Runtime Environment 
+RUN zypper -n refresh && \
+    zypper -n install java-1_8_0-openjdk
 
 # Install Patch
 RUN zypper -n install patch
@@ -38,11 +36,9 @@ RUN cd /usr/lib64/jvm/java-1.8.0-openjdk-1.8.0/jre/lib/security && \
 #
 FROM cafapi/opensuse-base:1
 
-# Refresh the OS repositories
-RUN zypper -n refresh
-
-# Install OpenJDK 8 Runtime Environment
-RUN zypper -n install java-1_8_0-openjdk
+# Refresh the OS repositories and install OpenJDK 8 Runtime Environment 
+RUN zypper -n refresh && \
+    zypper -n install java-1_8_0-openjdk
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.14.0/container-cert-script/install-ca-cert-java.sh \
