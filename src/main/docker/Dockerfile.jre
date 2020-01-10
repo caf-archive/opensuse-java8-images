@@ -37,7 +37,7 @@ RUN cd $JAVA_HOME/jre/lib/security && \
     patch -i disableWeakTlsAlgorithms.patch java.security
 
 #
-# The acutal image definition
+# The actual image definition
 #
 FROM cafapi/opensuse-base:1
 
