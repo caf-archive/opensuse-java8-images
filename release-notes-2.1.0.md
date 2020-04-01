@@ -4,6 +4,6 @@
 ${version-number}
 
 #### New Features
-- **SCMOD-8516**: Extend the TLS/SSL cipher hardening of the Java base images to disallow tlsv1 and tlsv1.1
+- **SCMOD-8516**: Extend the TLS/SSL cipher hardening of the Java base images to disallow TLSv1 and TLSv1.1
 
 #### Known Issues
