@@ -110,7 +110,6 @@
 +    TLS_DHE_RSA_WITH_CAMELLIA_256_CBC_SHA256, \
 +    SSL_DHE_RSA_WITH_DES_CBC_SHA, \
 +    TLS_DHE_RSA_WITH_SEED_CBC_SHA, \
-#Cipher found for TLSv1.1 in https://tools.ietf.org/html/rfc4346#page-53
 +    TLS_DH_anon_WITH_DES_CBC_SHA, \
 +    TLS_DH_anon_WITH_RC4_128_MD5, \
 +    TLS_DH_DSS_WITH_AES_128_CBC_SHA, \
