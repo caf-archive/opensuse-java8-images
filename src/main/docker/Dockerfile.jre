@@ -35,7 +35,7 @@ RUN cd /usr/lib64/jvm/java-1.8.0-openjdk-1.8.0/jre/lib/security && \
 #
 # The actual image definition
 #
-FROM cafapi/opensuse-base:1
+FROM cafinternal/prereleases:opensuse-base-1.5.0-SNAPSHOT
 
 # Refresh the OS repositories and install OpenJDK 8 Runtime Environment 
 RUN zypper -n refresh && \
