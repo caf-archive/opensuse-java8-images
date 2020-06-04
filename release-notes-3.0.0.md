@@ -6,6 +6,9 @@ ${version-number}
 #### New Features
 - **SCMOD-8516**: Extend the TLS/SSL cipher hardening of the Java base images to disallow TLSv1.1
 
+#### Bug Fixes
+- **SCMOD-7700**:  Stops the docker container if the execution of any of the startup scripts fail instead of ignoring it.
+
 #### Known Issues
 
 
