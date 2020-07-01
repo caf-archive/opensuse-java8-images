@@ -1,5 +1,3 @@
-!not-ready-for-release!
-
 #### Version Number
 ${version-number}
 
@@ -7,7 +5,7 @@ ${version-number}
 - **SCMOD-8516**: Extend the TLS/SSL cipher hardening of the Java base images to disallow TLSv1.1
 
 #### Known Issues
-
+- None
 
 #### Breaking Changes
 - **SCMOD-8516**: Extend the TLS/SSL cipher hardening of the Java base images to disallow TLSv1.1  
