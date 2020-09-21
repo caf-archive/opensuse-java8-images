@@ -1,4 +1,4 @@
-# openSUSE and Java 8 images
+# openSUSE and Java 8 imagesx
 
 This project builds two openSUSE-based images which include the OpenJDK 8 Runtime Environment or the OpenJDK 8 Development Kit and are based off the [OpenSUSE Base Image](https://github.com/CAFapi/opensuse-base-image). They can be used as a base image by projects which require Java 8.
 
