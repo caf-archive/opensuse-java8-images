@@ -43,10 +43,10 @@ RUN cd /usr/lib64/jvm/java-1.8.0-openjdk-1.8.0/jre/lib/security && \
 FROM ${DOCKER_HUB_PRIVATE}/cafinternal/prereleases:opensuse-base-2.2.0-SNAPSHOT
 
 # Refresh the OS repositories and install OpenJDK 8 Runtime Environment 
-RUN zypper al curl postgresql dejavu-fonts && \
-    zypper -n refresh && \
+RUN zypper -n refresh && \
     zypper -n update && \
-    zypper -n install java-1_8_0-openjdk
+    zypper -n install java-1_8_0-openjdk && \
+    zypper al java-1_8_0-openjdk
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.19.0/container-cert-script/install-ca-cert-java.sh \
