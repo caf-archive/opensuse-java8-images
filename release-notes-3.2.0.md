@@ -6,3 +6,10 @@ ${version-number}
 
 #### Known Issues
 - None
+
+#### Micro Focus Release Authorization 
+- OpenSUSE-jre8
+  - ITLS RTM Approval Id: 1822
+- OpenSUSE-jdk8
+  - ITLS RTM Approval Id: 1823
+  
