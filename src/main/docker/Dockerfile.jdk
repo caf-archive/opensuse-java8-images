@@ -50,9 +50,7 @@ RUN zypper -n refresh && \
     zypper -n install java-1_8_0-openjdk-devel && \
     zypper al java-1_8_0-openjdk && \
     zypper -n clean --all
-RUN chmod a+rwx /etc/pki/trust/anchors && \
-    chmod -R a+rwx /var/lib/ca-certificates /usr/lib64/jvm/jre/lib/security/cacerts && \
-    chmod -R a+rw /etc/ssl
+RUN chmod -R a+rwx /var/lib/ca-certificates /usr/lib64/jvm/jre/lib/security/cacerts
 
 # Install Java certificate installation script
 ADD https://raw.githubusercontent.com/CAFapi/caf-common/v1.19.0/container-cert-script/install-ca-cert-java.sh \
