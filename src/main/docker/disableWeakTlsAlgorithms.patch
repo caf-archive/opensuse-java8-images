@@ -16,7 +16,7 @@
 
 --- java.security
 +++ java.security
-@@ -624,7 +624,29 @@
+@@ -624,9 +624,29 @@
  # Example:
  #   jdk.tls.disabledAlgorithms=MD5, SSLv3, DSA, RSA keySize < 2048
  jdk.tls.disabledAlgorithms=SSLv3, TLSv1, TLSv1.1, RC4, DES, MD5withRSA, \
