@@ -23,7 +23,7 @@
 
     <groupId>com.github.cafapi</groupId>
     <artifactId>opensuse-java8-images</artifactId>
-    <version>3.8.1-SNAPSHOT</version>
+    <version>3.8.1-628</version>
     <packaging>pom</packaging>
 
     <name>openSUSE Java8 images</name>
